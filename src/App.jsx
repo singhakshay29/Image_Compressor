@@ -9,7 +9,6 @@ function App() {
 
   const [originalSize, setOriginalSize] = useState("");
   const [compressedSize, setCompressedSize] = useState("");
-  const [reduction, setReduction] = useState("");
 
   const handleImage = (e) => {
     const imageFile = e.target.files[0];
@@ -66,12 +65,6 @@ function App() {
           `${(sizeInBytes / 1024).toFixed(2)} KB`
         );
 
-        const reductionPercent = (
-          ((file.size - sizeInBytes) / file.size) *
-          100
-        ).toFixed(1);
-
-        setReduction(reductionPercent);
       };
     };
   };
@@ -149,11 +142,6 @@ function App() {
               <div className="stat-card">
                 <h4>Compressed</h4>
                 <p>{compressedSize}</p>
-              </div>
-
-              <div className="stat-card">
-                <h4>Reduction</h4>
-                <p>{reduction}%</p>
               </div>
             </div>
 
